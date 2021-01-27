@@ -1,4 +1,5 @@
 var notesArray = [2000, 500, 100, 20, 10, 5, 1];
+var notesToBeReturned = [];
 
 var greatestNoteSmallerThanAmount = (amountRecieved, billAmount) => {
 
@@ -11,8 +12,12 @@ var greatestNoteSmallerThanAmount = (amountRecieved, billAmount) => {
     else{
         let balanceAmount = amountRecieved - billAmount;
         notesArray.forEach((note) => {
+            if (balance !== 0) {
+                let numberOfNotes = Math.floor(balanceAmount / note);
+                balanceAmount = balanceAmount - numberOfNotes * note;
+            }
         });
     }
 }
 
-greatestNoteSmallerThanAmount(500, 200);
+greatestNoteSmallerThanAmount(3000, 700);
